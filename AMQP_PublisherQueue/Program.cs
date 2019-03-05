@@ -37,7 +37,7 @@ namespace AMQP_PublisherQueue
                 }
             }
             Console.WriteLine(" Press [enter] to exit.");
-            Console.ReadLine();
+            Console.ReadLine(); 
         }
     }
 }
