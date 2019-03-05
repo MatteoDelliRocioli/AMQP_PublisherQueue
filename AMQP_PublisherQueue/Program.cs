@@ -8,25 +8,29 @@ namespace AMQP_PublisherQueue
     {
         public static void Main(string[] args)
         {
+            //declare connection
             var factory = new ConnectionFactory()
             {
                 HostName = "localhost"
             };
 
+            //use connection
             using (var connection = factory.CreateConnection())
             {
+                //create channel
                 using (var channel = connection.CreateModel())
                 {
-                    //declare/create a queue
+                    //declare-create a queue
                     channel.QueueDeclare(   queue:"queueTest",
                                             durable: false,
                                             exclusive: false,
                                             autoDelete: false,
                                             arguments: null);
-
+                    //create a message
                     string message = "Hello World";
                     var body = Encoding.UTF8.GetBytes(message);
 
+                    //publish the message 
                     channel.BasicPublish(   exchange: "",
                                             routingKey: "AMQPTest",
                                             mandatory: true,
