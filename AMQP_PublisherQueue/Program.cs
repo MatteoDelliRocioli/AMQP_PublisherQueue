@@ -32,7 +32,7 @@ namespace AMQP_PublisherQueue
 
                     //publish the message 
                     channel.BasicPublish(   exchange: "",
-                                            routingKey: "AMQPTest",
+                                            routingKey: "queueTest",
                                             mandatory: true,
                                             basicProperties: null,
                                             body: body);
